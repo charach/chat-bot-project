@@ -3,7 +3,7 @@
 
 #define MAX_MSG_SIZE 1000
 
-#define COMMON_SUCCESS 0
+#define CHAT_BOT_SUCCESS 0
 
 
 

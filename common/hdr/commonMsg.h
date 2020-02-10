@@ -6,7 +6,7 @@
 class CommonMsg
 {
     public:
-        int processMsg(string receiveMsg,string sendMsg);
+        virtual int processMsg(Json::Value receiveMsg,Json::Value sendMsg);
     private:
 
 };

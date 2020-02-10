@@ -6,10 +6,10 @@
 class CommonRest
 {
     public:
-        int getResponseOnlyUrl(string URL,void *callBack));
-        int getResponseByJSON(string URL,map<string,string> data,void *callBack));
+        int getResponseOnlyUrl(string URL,void *callBack);
+        int getResponseByJSON(string URL,Json::Value data,void *callBack);
     private:
-        int getResponse(string URL,string data,void *callBack));
+        int getResponse(string URL,string data,void *callBack);
 };
 
 #endif
