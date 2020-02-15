@@ -3,9 +3,11 @@
 
 #include <iostream>
 #include <string>
+#include <string.h>
 #include <map>
 #include <curl/curl.h>
 #include <stdlib.h>
+#include <errno.h>
 
 #include "commonError.h"
 #include "commonDef.h"
