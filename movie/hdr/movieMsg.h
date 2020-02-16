@@ -7,7 +7,7 @@
 class MovieMsg : public CommonMsg
 {
     public :
-        int processMsg(string receiveMsg,string sendMsg);
+        int processMsg(Json::Value receiveMsg,Json::Value sendMsg) override;
     private :
 };
 

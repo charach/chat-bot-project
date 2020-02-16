@@ -1,18 +1,20 @@
-CPP = g++
-vpath %.cpp common/src/
-vpath %.cpp library/jsoncpp/
-vpath %.cpp movie/src/
+CC = g++
+
 
 vpath %.h common/hdr
 vpath %.h library/jsoncpp/json/
 vpath %.h movie/hdr/
 
+OBJDIR := OBJ
+SRCS := $(shell find . -name '*.cpp')
+OBJS := $(patsubst %.cpp,$(OBJDIR)/%.o,$(SRCS))
+
 CPPFLAGS =  \
-		-I library/ \
-		-I common/hdr \
+		-Ilibrary/ \
+		-Icommon/hdr \
 		-I movie/hdr \
 		-I/usr/local/include \
-		-L/usr/local/lib \
+		-I/usr/local/lib \
 
 INCLUDE = \
 		-I/usr/local/include \
@@ -35,11 +37,22 @@ OBJECTS = \
 
 TARGET = chatbot
 
-all : $(TARGET)
-	
-$(TARGET) : $(OBJECTS)
-	$(CPP) -Wall -Wextra -o $@ $^ $(LINK_LIBRARY)
-	
+all : buildrepo $(TARGET)
+
+$(TARGET) : $(OBJS)
+	@echo "Building $@..."
+	@echo "@$(CC) $(OBJECTS) $(LDFLAGS) -o $@ $(LINK_LIBRARY)"
+	cd $(OBJDIR) && $(CC) $(OBJECTS) $(LDFLAGS) -o $@ $(LINK_LIBRARY)
+
+$(OBJDIR)/%.o: %.cpp
+	@echo "Compiling $<..."
+	$(CC) $(CPPFLAGS) -c $< -o $(OBJDIR)/$(notdir $@)
+
+
+buildrepo:
+	mkdir -p $(OBJDIR)
+
 clean : 
 	rm -rf */*.o \
 	rm -rf *.o
+	rm -rf OBJ

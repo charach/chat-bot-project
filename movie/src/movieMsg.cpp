@@ -1,6 +1,6 @@
 #include "movieMsg.h"
 
-int MovieMsg::processMsg(string receiveMsg,string sendMsg)
+int MovieMsg::processMsg(Json::Value receiveMsg,Json::Value sendMsg)
 {
     int retVal = 0;
 
