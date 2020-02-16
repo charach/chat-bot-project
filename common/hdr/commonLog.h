@@ -13,12 +13,14 @@
 class CommonLog
 {
     public:
+        CommonLog();
         void writeErrLog(char *fmt, ...);
         void writeLog(char *fmt, ...);
     private:
         void writeLogToFile(string log);
         const string LOG_FILE_PATH = "/var/log/chatbot/";
         const int LOG_BUF_SIZE = 500;
+        const int TIME_BUF_SIZE = 100;
 };
 
 #endif

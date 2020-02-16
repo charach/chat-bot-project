@@ -1,6 +1,8 @@
-#include "commonInclude.h"
 #ifndef __MOVIE_REST_H__
 #define __MOVIE_REST_H__
+
+#include "commonInclude.h"
+#include "commonRest.h"
 
 class MovieRest : public CommonRest
 {

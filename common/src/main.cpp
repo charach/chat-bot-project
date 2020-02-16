@@ -1,7 +1,7 @@
 #include "commonInclude.h"
 #include "movieMsg.h"
 
-int main(void)
+int main(int argc,char *argv[])
 {
     int retVal = 0;
     string msgFromUser = "";

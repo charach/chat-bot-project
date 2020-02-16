@@ -60,10 +60,10 @@ void CommonLog::writeLogToFile(string log)
     
     time_t t = time(0);
     struct tm *lt = localtime(&t);
-    char time_str[15] = { 0, };   
+    char time_str[TIME_BUF_SIZE] = { 0, };   
     char logBuf[LOG_BUF_SIZE] = { 0, };
 
-    sprintf(time_str, "[%04d%02d%02d]", lt->tm_year + 1900, lt->tm_mon + 1, lt->tm_mday);
+    snprintf(time_str, TIME_BUF_SIZE, "[%04d%02d%02d]", lt->tm_year + 1900, lt->tm_mon + 1, lt->tm_mday);
     string logFilePath = LOG_FILE_PATH + string(time_str);
 
     ofstream writeFile(logFilePath.data());
@@ -76,7 +76,7 @@ void CommonLog::writeLogToFile(string log)
         return;
     }
 
-    sprintf(time_str, "[%04d%02d%02d%02d%02d%02d]", lt->tm_year + 1900, lt->tm_mon + 1, lt->tm_mday, lt->tm_hour, lt->tm_min, lt->tm_sec);
+    snprintf(time_str, TIME_BUF_SIZE, "[%04d%02d%02d%02d%02d%02d]", lt->tm_year + 1900, lt->tm_mon + 1, lt->tm_mday, lt->tm_hour, lt->tm_min, lt->tm_sec);
     log = string(time_str).append(log);
     writeFile << log.c_str() << endl;
 

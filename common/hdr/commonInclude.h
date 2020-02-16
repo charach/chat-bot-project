@@ -11,9 +11,7 @@
 
 #include "commonError.h"
 #include "commonDef.h"
-#include "commonMsg.h"
-#include "commonRest.h"
-#include "json/json.h"
+#include "jsoncpp/json/json.h"
 
 using namespace std;
 

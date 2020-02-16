@@ -1,6 +1,8 @@
-#include "commonInclude.h"
 #ifndef __MOVIE_MSG_H__
 #define __MOVIE_MSG_H__
+
+#include "commonInclude.h"
+#include "commonMsg.h"
 
 class MovieMsg : public CommonMsg
 {
