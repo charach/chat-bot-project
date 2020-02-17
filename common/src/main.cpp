@@ -6,10 +6,12 @@ int main(int argc,char *argv[])
 {
     int retVal = 0;
     string msgFromUser = "";
-    string answer = "";
 
     MovieMsg movieMsg;
     
+
+    Json::Value msgFromUserJson;
+    Json::Value answer;
     cout << "HiHi May I Help You?" << endl;
 
     while(true)
@@ -21,7 +23,10 @@ int main(int argc,char *argv[])
             break;
         }
 
-        if(( retVal = movieMsg.processMsg(msgFromUser,answer)) != CHAT_BOT_SUCCESS)
+        cout << "Movie Name?" << endl;
+
+
+        if(( retVal = movieMsg.processMsg(msgFromUserJson,answer)) != CHAT_BOT_SUCCESS)
         {
             break;
         }

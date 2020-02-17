@@ -3,12 +3,14 @@
 
 #include "commonInclude.h"
 #include "commonMsg.h"
+#include "movieRest.h"
 
 class MovieMsg : public CommonMsg
 {
     public :
         int processMsg(Json::Value receiveMsg,Json::Value sendMsg) override;
     private :
+        MovieRest movieRest;
 };
 
 #endif
